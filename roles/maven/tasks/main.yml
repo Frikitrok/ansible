@@ -9,9 +9,6 @@
       dest: /usr/share/maven-hello-world
       clone: yes
       update: no
-  
-  # - name: give right pom
-  #   copy: src=pom.xml dest=/usr/share/maven-hello-world/pom.xml
 
   - name: build artifact
     command: mvn clean package chdir=/usr/share/maven-hello-world
