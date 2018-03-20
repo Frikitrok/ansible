@@ -1,0 +1,10 @@
+---
+- name: Hometask dima ansible/maven/tomcat
+  hosts: worker
+  roles:
+    #- tomcat
+    #- maven
+    - nginx
+
+# - name: Config maven
+#   hosts: web

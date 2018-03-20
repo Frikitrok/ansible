@@ -1,0 +1,26 @@
+---
+# tasks file for maven
+  - name: Install maven
+    package: name=maven state=installed
+
+  - name: clone hello world
+    git:
+      repo: 'https://github.com/efsavage/hello-world-war'
+      dest: /usr/share/maven-hello-world
+      clone: yes
+      update: no
+  
+  # - name: give right pom
+  #   copy: src=pom.xml dest=/usr/share/maven-hello-world/pom.xml
+
+  - name: build artifact
+    command: mvn clean package chdir=/usr/share/maven-hello-world
+
+  - name: copy built war
+    copy: src=/usr/share/maven-hello-world/target/hello-world-war-1.0.0.war  dest=/usr/share/tomcat/webapps/hello_world.war remote_src=yes mode=0755
+
+  - name: Change ownership of Tomcat installation
+    file: path=/usr/share/tomcat/webapps/hello_world.war owner=tomcat group=tomcat
+  
+  - name: restart tomcat
+    service: name=tomcat state=restarted enabled=yes

@@ -1,0 +1,6 @@
+---
+# vars file for tomcat
+  tomcat_version: "9.0.6"
+  tomcat_global_version: "9"
+  admin_username: 'tomcat'
+  admin_password: 'tomcat'
