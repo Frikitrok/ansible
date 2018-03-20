@@ -15,7 +15,7 @@
 10. ‎в ідеалі при відкриванні в браузері localhost - має першою з'являтися аплікуха з Томкату 
 
 ##Commands
-
+* ansible command
 ansible -m ping all
 ansible -m ping localhost
 ansible -m shell -a "whoami" localhost
